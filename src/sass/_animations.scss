@@ -21,17 +21,36 @@ $duration: 2s;
   }
 }
 
+/* Fade Animations */
+[data-anim="fade-in"] {
+  opacity: 0;
+  transition-duration: $duration;
+  transition-property: opacity;
+
+  &.animate {
+    opacity: 1;
+  }
+}
+
 /* Slide-in Animations */
-[data-anim="slide-in-up"] {
+[data-anim^="slide-in"] {
   opacity: 0;
   transition-duration: $duration;
   transition-property: opacity, transform;
-  transform: translateY(50%);
 
   &.animate {
     opacity: 1;
     transform: translate(0, 0);
   }
+}
+[data-anim="slide-in-up"] {
+  transform: translateY(50%);
+}
+[data-anim="slide-in-left"] {
+  transform: translateX(10%);
+}
+[data-anim="slide-in-right"] {
+  transform: translateX(-10%);
 }
 
 /* Zoom Animations */

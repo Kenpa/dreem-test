@@ -11,8 +11,9 @@
   <body>
     <!-- First block -->
     <div class="block1 row justify-content-center align-items-center no-gutters">
-      <div class="col-auto">
-        Défiler pour vivre l'expérience
+      <div class="col-10 col-md-6 justify-content-center">
+        <img src="./dist/img/logo.png"
+             data-anim="fade-in"/>
       </div>
     </div>
 
@@ -53,9 +54,27 @@
     </div>
 
     <!-- Third block -->
-    <div class="block3 row justify-content-center align-items-center no-gutters">
+    <div class="block3 row flex-column justify-content-center align-items-center no-gutters">
+      <div class="col-4 col-md-2">
+        <img class="avatar" src="./dist/img/me.png"
+            data-anim="slide-in-right"
+            data-offset-anchor-in=".block3"
+            data-offset-value-in="0.7"
+            data-offset-anchor-out=".block3"
+            data-offset-value-out="0.7"/>
+      </div>
       <div class="col-auto">
-        Tchi-An Jean - Développeur Front-End
+        <div class="textWrapper d-flex flex-column align-items-center"
+          data-anim="slide-in-left"
+          data-offset-anchor-in=".block3"
+          data-offset-value-in="0.7"
+          data-offset-anchor-out=".block3"
+          data-offset-value-out="0.3">
+          <p class="textTitle">PHOU Tchi-An Jean</p>
+          <p class="textBody">Développeur Front-End</p>
+        </div>
+      </div>
+      </div>
       </div>
     </div>
 

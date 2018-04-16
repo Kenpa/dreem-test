@@ -49,12 +49,13 @@ img {
   font-weight: 700;
 	font-size: 1.8em;
   line-height: 1.2;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
 }
 
 .textBody {
   line-height: 1.5;
   color: $secondaryFontColor;
+  margin: 0;
 }
 
 .picturesWrapper {
@@ -71,4 +72,8 @@ img {
 	color: $floatingWordFontColor;
 	right: 0;
 	z-index: 0;
+}
+
+.avatar {
+  border-radius: 50%;
 }

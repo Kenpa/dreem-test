@@ -27,6 +27,7 @@ const init = () => {
 const refresh = () => {
   initBlocksHeight();
   elements = initElements();
+  handleScroll(elements);
 }
 
 init();
