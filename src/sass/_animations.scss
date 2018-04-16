@@ -1,0 +1,33 @@
+$duration: 2s;
+
+/* Slide-in Animations */
+[data-anim="slide-in-up"] {
+  opacity: 0;
+  transition-duration: $duration;
+  transition-property: opacity, transform;
+  transform: translateY(50%);
+
+  &.animate {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Zoom Animations */
+[data-anim^="zoom"] {
+  opacity: 1;
+  transform: scale(1.0);
+  transition-duration: $duration;
+  transition-property: transform, opacity;
+
+  &.animate {
+    transform: scale(1.5);
+
+    @include mobile {
+      transform: scale(1.0);
+    }
+  }
+}
+[data-anim="zoom-out"].animate {
+  opacity: 0;
+}

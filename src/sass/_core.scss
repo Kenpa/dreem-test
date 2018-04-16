@@ -1,11 +1,16 @@
 html {
   font-family: $fontFamily;
-  font-size: 16px;
   font-weight: 400;
   color: $primaryFontColor;
 
+  @include mobile {
+    font-size: 14px;
+  }
+  @include tablet {
+    font-size: 14px;
+  }
   @include tablet-laptop {
-    font-size: 17px;
+    font-size: 16px;
   }
   @include laptop-desktop {
     font-size: 18px;
@@ -16,7 +21,6 @@ html {
   @include tv {
     font-size: 26px;
   }
-
 }
 
 body {
@@ -27,16 +31,17 @@ img {
   max-width: 100%;
 }
 
-.block1, .block3 {
-  min-height: 600px;
-}
-
 .block2 {
   background-color: #F7F7F7;
+  overflow: hidden;
 }
 
 .textWrapper {
 	padding: 2em;
+
+  @include mobile {
+    text-align: center;
+  }
 }
 
 .textTitle {
