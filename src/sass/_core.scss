@@ -1,0 +1,61 @@
+html {
+  font-family: $fontFamily;
+  font-size: 16px;
+  font-weight: 400;
+  color: $primaryFontColor;
+
+  @include tablet-laptop {
+    font-size: 17px;
+  }
+  @include laptop-desktop {
+    font-size: 18px;
+  }
+  @include desktop-tv {
+    font-size: 20px;
+  }
+  @include tv {
+    font-size: 26px;
+  }
+
+}
+
+body {
+  margin: 0 !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+.block1, .block3 {
+  min-height: 600px;
+}
+
+.block2 {
+  background-color: #F7F7F7;
+}
+
+.textWrapper {
+	padding: 2em;
+}
+
+.textTitle {
+  font-weight: 700;
+	font-size: 1.8em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.textBody {
+  line-height: 1.5;
+  color: $secondaryFontColor;
+}
+
+.picturesWrapper {
+  position: relative;
+}
+
+.colorPicture {
+  position: absolute;
+  bottom: 0;
+}

@@ -1,0 +1,48 @@
+/**
+ * Fonts
+ */
+
+$fontFamily: 'Lato', sans-serif;
+$primaryFontColor: #000;
+$secondaryFontColor: #636363;
+
+/**
+ * Media Queries (based on bootstrap)
+ */
+
+$medium-width: 768px;
+$large-width: 992px;
+$xlarge-width: 1200px;
+$xxlarge-width: 1920px;
+$xxxlarge-width: 2560px;
+
+@mixin mobile {
+  @media (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet-laptop {
+  @media (min-width: #{$large-width}) and (max-width: #{$xlarge-width - 1px}) {
+    @content;
+  }
+}
+@mixin laptop-desktop {
+  @media (min-width: #{$xlarge-width}) and (max-width: #{$xxlarge-width - 1px}){
+    @content;
+  }
+}
+@mixin desktop-tv {
+  @media (min-width: #{$xxlarge-width}) and (max-width: #{$xxxlarge-width - 1px}){
+    @content;
+  }
+}
+@mixin tv {
+  @media (min-width: #{$xxxlarge-width}) {
+    @content;
+  }
+}
