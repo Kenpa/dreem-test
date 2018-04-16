@@ -1,4 +1,5 @@
 import _ from 'lodash';
+
 /**
  * Called when scrolling
  */
@@ -12,11 +13,28 @@ const handleScroll = (elements) => {
 };
 
 /**
- * Add/Remove .animate on elements
+ * Add/Remove .animate on elements & trigger animation events
  */
 const setAnimationState = (element, top) => {
-  if (top > element.breakpointIn && element.breakpointOut > top) element.node.classList.add('animate');
-  else element.node.classList.remove('animate');
+  let eventAnimating = null;
+  let eventNotAnimating = null;
+
+  if (element.eventName) {
+    eventAnimating = new Event(element.eventName);
+    eventNotAnimating = new Event('not-' + element.eventName);
+  }
+
+  if (top > element.breakpointIn && element.breakpointOut > top) {
+    if (eventAnimating && !element.node.classList.contains('animate')) {
+      window.dispatchEvent(eventAnimating);
+    }
+    element.node.classList.add('animate');
+  } else {
+    if (eventNotAnimating && element.node.classList.contains('animate')) {
+      window.dispatchEvent(eventNotAnimating);
+    }
+    element.node.classList.remove('animate');
+  }
 };
 
 export default handleScroll;

@@ -2,6 +2,7 @@ import _ from 'lodash';
 import handleScroll from './helpers/scroll';
 import initElements from './helpers/initElements';
 import initBlocksHeight from './helpers/initBlocksHeight';
+import animateWords from './helpers/animateWords';
 
 import '../sass/main.scss'; // for webpack compilation
 
@@ -13,12 +14,19 @@ const init = () => {
   window.addEventListener('scroll', _.throttle(() => {
     handleScroll(elements);
   }, 100));
+
+  // Listen to block2 pictures animation events
+  window.addEventListener('animating-pictures', function() {
+    animateWords(true);
+  });
+  window.addEventListener('not-animating-pictures', function() {
+    animateWords(false);
+  });
 };
 
 const refresh = () => {
   initBlocksHeight();
   elements = initElements();
-  handleScroll(elements);
 }
 
 init();

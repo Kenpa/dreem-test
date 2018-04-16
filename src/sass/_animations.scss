@@ -1,5 +1,26 @@
 $duration: 2s;
 
+@mixin animation($animate) {
+  -webkit-animation: $animate;
+  -moz-animation: $animate;
+  -o-animation: $animate;
+  animation: $animate;
+}
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
 /* Slide-in Animations */
 [data-anim="slide-in-up"] {
   opacity: 0;
@@ -31,3 +52,20 @@ $duration: 2s;
 [data-anim="zoom-out"].animate {
   opacity: 0;
 }
+
+/* Word floating animation */
+[data-anim="floating"] {
+  transition-timing-function: linear;
+  transition-duration: 10s;
+  transition-property: transform;
+
+  &.animate {
+    @include animation(fadeInFadeOut 10s);
+  }
+}
+@include keyframes(fadeInFadeOut) {
+  0% { opacity: 0 }
+  20% { opacity: 1 }
+  80% { opacity: 1 }
+  100% { opacity: 0 }
+};

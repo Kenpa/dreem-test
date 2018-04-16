@@ -29,6 +29,7 @@ body {
 
 img {
   max-width: 100%;
+  z-index: 1;
 }
 
 .block2 {
@@ -63,4 +64,11 @@ img {
 .colorPicture {
   position: absolute;
   bottom: 0;
+}
+
+.floatingWord {
+	position: absolute;
+	color: $floatingWordFontColor;
+	right: 0;
+	z-index: 0;
 }
