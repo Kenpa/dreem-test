@@ -16,10 +16,10 @@ const init = () => {
   }, 100));
 
   // Listen to block2 pictures animation events
-  window.addEventListener('animating-pictures', function() {
+  window.addEventListener('animating-pictures', () => {
     animateWords(true);
   });
-  window.addEventListener('not-animating-pictures', function() {
+  window.addEventListener('not-animating-pictures', () => {
     animateWords(false);
   });
 };
