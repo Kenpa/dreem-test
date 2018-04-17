@@ -1,9 +1,15 @@
-/**
- * Animate words behind the picture
- */
-let intervalID = null;
+import _ from 'lodash';
 
-const picturesWrapper = document.querySelector('.picturesWrapper');
+let intervalID = null;
+let picturesWrapper = null;
+let imgHeight = null;
+
+/**
+ * Bounds of words vertical position
+ */
+const topHeadLimitInPicture = 0.8;
+const bottomHeadLimitInPicture = 0.3;
+
 const list = [
   'dune', 'soleil', 'chaleur', 'eau',
   'ciel', 'thin', 'romarin', 'criquet',
@@ -11,10 +17,15 @@ const list = [
   'pêche', 'barbecue', 'rosé', 'mirtille'];
 const fontSizes = ['0.8em', '1em', '1.2em', '1.4em'];
 
+/**
+ * Animate words behind the picture
+ */
 const animateWords = (state) => {
   if (!state) {
     clearInterval(intervalID);
   } else {
+    picturesWrapper = document.querySelector('.picturesWrapper');
+    imgHeight = document.querySelector('.greyPicture').offsetHeight;
     intervalID = setInterval(() => {
       const node = initializeWord();
       setTimeout(() => {
@@ -26,9 +37,9 @@ const animateWords = (state) => {
 
 const initializeWord = () => {
   const node = document.createElement('SPAN');
-  const text = list[getRandomInt(0, list.length)];
-  const textNode = document.createTextNode(list[getRandomInt(0, list.length)]);
-  const randomPositionY = getRandomInt(0, picturesWrapper.offsetHeight);
+  const text = _.startCase(_.toLower(list[getRandomInt(0, list.length)]));
+  const textNode = document.createTextNode(text);
+  const randomPositionY = getRandomInt(imgHeight * bottomHeadLimitInPicture, imgHeight * topHeadLimitInPicture);
   const randomFontSize = fontSizes[getRandomInt(0, fontSizes.length)];
 
   node.appendChild(textNode);
@@ -47,6 +58,7 @@ const initializeWord = () => {
 }
 
 const getRandomInt = function(min, max) {
+  min = Math.floor(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
